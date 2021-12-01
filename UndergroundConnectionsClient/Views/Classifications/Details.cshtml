@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Classification Info:</h1>
+<ul>
+    <li>ID: @Model.ClassificationId</li>
+    <li>Name: @Model.Name</li>
+    <li>Name: @Model.ClassificationSpecification</li>
+</ul>
+<br>
+
+<a href="/Classifications/Edit/@(Model.ClassificationId)"><p>Edit</p></a>
+<br>
+
+<a href="/Classifications"><p>Return</p></a>
+
+<a href="/Classifications/Delete/@(Model.ClassificationId)"><p>DELETE Classification</p></a>

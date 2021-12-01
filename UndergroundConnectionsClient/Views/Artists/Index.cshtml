@@ -1,0 +1,19 @@
+<h1>All Artists:</h1>
+
+<ol>
+@foreach (Artist artist in Model)
+{
+    <ul>
+        <li>ID: @artist.ArtistId</li>
+        <li>Name: @artist.Name</li>
+        <li>Age: @artist.Age</li>
+        <li>Email: @artist.Email</li>
+        <li>Bio: @artist.Bio</li>
+        <li>Seeking: @artist.Seeking</li>
+        <li>Past Work: @artist.PastWork</li>
+    </ul>
+    <a href="/Artists/Details/@(artist.ArtistId)"><p>View Details</p></a>
+    <br>
+}
+</ol>
+

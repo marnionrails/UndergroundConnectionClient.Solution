@@ -1,0 +1,22 @@
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Artist Info:</h1>
+<ul>
+    <li>ID: @Model.ArtistId</li>
+    <li>Name: @Model.Name</li>
+    <li>Age: @Model.Age</li>
+    <li>Email: @Model.Email</li>
+    <li>Bio: @Model.Bio</li>
+    <li>Seeking: @Model.Seeking</li>
+    <li>Past Work: @Model.PastWork</li>
+</ul>
+<br>
+
+<a href="/Artists/Edit/@(Model.ArtistId)"><p>Edit</p></a>
+<br>
+
+<a href="/Artists"><p>Return</p></a>
+
+<a href="/Artists/Delete/@(Model.ArtistId)"><p>DELETE ARTIST</p></a>

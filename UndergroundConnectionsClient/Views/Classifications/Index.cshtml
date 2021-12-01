@@ -1,0 +1,14 @@
+<h1>All Classifications:</h1>
+
+<ol>
+@foreach (Classification classification in Model)
+{
+    <ul>
+        <li>ID: @classification.ClassificationId</li>
+        <li>Name: @classification.ClassificationName</li>
+        <li>Specification: @classification.ClassificationSpecification</li>
+    </ul>
+    <a href="/Classification/Details/@(classification.ClassificationId)"><p>View Details</p></a>
+    <br>
+}
+</ol>

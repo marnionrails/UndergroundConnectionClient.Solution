@@ -1,0 +1,10 @@
+<h1>Edit Info:</h1>
+<form action="/Classifications/Details/@(Model.ClassificationId)" method="post">
+  <label for="name">Classification Name</label>
+  <input id="name" name="name" type="text" value="@(Model.Name)">
+  <label for="specification">Classification Specification</label>
+  <input id="specification" name="specification" type="number" value="@(Model.Specification)">
+  <button type="submit">Go!</button>
+</form>
+
+<a href="/Classifications/Details/@(Model.ClassificationId)"><p>Return to Details</p></a>
