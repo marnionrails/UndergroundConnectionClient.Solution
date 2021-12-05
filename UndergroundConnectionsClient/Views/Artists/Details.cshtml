@@ -4,19 +4,20 @@
 
 <h1>Artist Info:</h1>
 <ul>
-    <li>ID: @Model.ArtistId</li>
-    <li>Name: @Model.Name</li>
-    <li>Age: @Model.Age</li>
-    <li>Email: @Model.Email</li>
-    <li>Bio: @Model.Bio</li>
-    <li>Seeking: @Model.Seeking</li>
-    <li>Past Work: @Model.PastWork</li>
+    <li>ID: @Model.Artists.ArtistId</li>
+    <li>Name: @Model.Artists.Name</li>
+    <li>Age: @Model.Artists.Age</li>
+    <li>Email: @Model.Artists.Email</li>
+    <li>Bio: @Model.Artists.Bio</li>
+    <li>Seeking: @Model.Artists.Seeking</li>
+    <li>Past Work: @Model.Artists.PastWork</li>
+    <li>Classification: @Model.Classifications.ClassificationName</li>
 </ul>
 <br>
 
-<a href="/Artists/Edit/@(Model.ArtistId)"><p>Edit</p></a>
+<a href="/Artists/Edit/@(Model.Artists.ArtistId)"><p>Edit</p></a>
 <br>
 
 <a href="/Artists"><p>Return</p></a>
 
-<a href="/Artists/Delete/@(Model.ArtistId)"><p>DELETE ARTIST</p></a>
+<a href="/Artists/Delete/@(Model.Artists.ArtistId)"><p>DELETE ARTIST</p></a>
