@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using UndergroundConnectionsClient.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace UndergroundConnectionsClient.Controllers
 {
@@ -16,13 +18,15 @@ namespace UndergroundConnectionsClient.Controllers
       var allArtists = Artist.GetArtists();
       return View(allArtists);
     }
-    public IActionResult Create()
+    public IActionResult Create(Classification classification)
     {
+      var allClassifications = Classification.GetClassifications();
+      ViewBag.ClassificationId = new SelectList(allClassifications,"ClassificationId","ClassificationName");
       return View();
     }
 
     [HttpPost]
-    public IActionResult Create(Artist artist)
+    public IActionResult Create( Artist artist, int ClassificationId)
     {
       Artist.Post(artist);
       return RedirectToAction("Index","Classifications");
