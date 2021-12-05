@@ -1,6 +1,6 @@
 @model UndergroundConnectionsClient.Models.Artist
 
-@using (Html.BeginForm("Create", "Artists"))
+@using (Html.BeginForm("Create", "Artists", new { classificationId = ViewBag.ClassificationId}))
 {
   @Html.LabelFor(a => a.Name)
   @Html.TextBoxFor(a => a.Name)
@@ -12,5 +12,7 @@
   @Html.TextBoxFor(a => a.Bio)
   @Html.LabelFor(a => a.PastWork)
   @Html.TextBoxFor(a => a.PastWork)
+  @Html.Label("Select Classification")
+  @Html.DropDownList("ClassificationId")
   <input type="submit" value="Add Artist" class="btn btn-primary" />
 }
