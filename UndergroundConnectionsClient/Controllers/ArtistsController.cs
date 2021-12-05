@@ -16,12 +16,16 @@ namespace UndergroundConnectionsClient.Controllers
       var allArtists = Artist.GetArtists();
       return View(allArtists);
     }
+    public IActionResult Create()
+    {
+      return View();
+    }
 
     [HttpPost]
-    public IActionResult Index(Artist artist)
+    public IActionResult Create(Artist artist)
     {
       Artist.Post(artist);
-      return RedirectToAction("Index");
+      return RedirectToAction("Index","Classifications");
     }
 
     public IActionResult Details(int id)
