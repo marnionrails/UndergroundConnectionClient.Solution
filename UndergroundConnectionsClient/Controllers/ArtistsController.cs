@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using UndergroundConnectionsClient.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Dynamic;
 
 namespace UndergroundConnectionsClient.Controllers
 {
@@ -26,16 +27,21 @@ namespace UndergroundConnectionsClient.Controllers
     }
 
     [HttpPost]
-    public IActionResult Create( Artist artist, int ClassificationId)
+    public IActionResult Create( Artist artist, Classification classification)
     {
       Artist.Post(artist);
+      Classification.Post(classification);
       return RedirectToAction("Index","Classifications");
     }
 
     public IActionResult Details(int id)
     {
+      dynamic mymodel = new ExpandoObject();
       var artist = Artist.GetDetails(id);
-      return View(artist);
+      var classification = Classification.GetDetails(id);
+      mymodel.Artists = artist;
+      mymodel.Classifications = classification;
+      return View(mymodel);
     }
 
     public IActionResult Edit(int id)
@@ -49,6 +55,7 @@ namespace UndergroundConnectionsClient.Controllers
     {
       artist.ArtistId = id;
       Artist.Put(artist);
+      // Classification.Put(classification);
       return RedirectToAction("Details", id);
     }
 
