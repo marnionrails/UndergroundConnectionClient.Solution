@@ -18,7 +18,7 @@ namespace UndergroundConnectionsClient.Controllers
       var allArtists = Artist.GetArtists();
       return View(allArtists);
     }
-    public IActionResult Create(Classification classification)
+    public IActionResult Create()
     {
       var allClassifications = Classification.GetClassifications();
       ViewBag.ClassificationId = new SelectList(allClassifications,"ClassificationId","ClassificationName");
