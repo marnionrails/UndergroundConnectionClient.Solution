@@ -1,9 +1,9 @@
 <h1>Edit Info:</h1>
 <form action="/Classifications/Details/@(Model.ClassificationId)" method="post">
-  <label for="name">Classification Name</label>
-  <input id="name" name="name" type="text" value="@(Model.Name)">
-  <label for="specification">Classification Specification</label>
-  <input id="specification" name="specification" type="number" value="@(Model.Specification)">
+  <label for="classificationName">Classification Name</label>
+  <input id="classificationName" name="classificationName" type="text" value="@(Model.ClassificationName)">
+  <label for="classificationSpecification">Classification Specification</label>
+  <input id="classificationSpecification" name="classificationSpecification" type="text" value="@(Model.ClassificationSpecification)">
   <button type="submit">Go!</button>
 </form>
 
