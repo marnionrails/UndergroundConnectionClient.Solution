@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using UndergroundConnectionsClient.Models;
+<<<<<<< HEAD
+=======
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+>>>>>>> eb367d86c5412eca5518f2cba807d8b5a330567f
 
 namespace UndergroundConnectionsClient.Controllers
 {
@@ -16,12 +21,27 @@ namespace UndergroundConnectionsClient.Controllers
       var allArtists = Artist.GetArtists();
       return View(allArtists);
     }
+<<<<<<< HEAD
 
     [HttpPost]
     public IActionResult Index(Artist artist)
     {
       Artist.Post(artist);
       return RedirectToAction("Index");
+=======
+    public IActionResult Create()
+    {
+      var allClassifications = Classification.GetClassifications();
+      ViewBag.ClassificationId = new SelectList(allClassifications,"ClassificationId","ClassificationName");
+      return View();
+    }
+
+    [HttpPost]
+    public IActionResult Create( Artist artist, int ClassificationId)
+    {
+      Artist.Post(artist);
+      return RedirectToAction("Index","Classifications");
+>>>>>>> eb367d86c5412eca5518f2cba807d8b5a330567f
     }
 
     public IActionResult Details(int id)

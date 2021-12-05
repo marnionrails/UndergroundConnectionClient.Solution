@@ -2,15 +2,24 @@
   Layout = "_Layout";
 }
 @using System.Security.Claims
+<<<<<<< HEAD
 <h2>Pierre's Treats: Employees</h2>
+=======
+<h2>Undergrond Connections: @User.Identity.Name!</h2>
+>>>>>>> eb367d86c5412eca5518f2cba807d8b5a330567f
 
 @if(User.Identity.IsAuthenticated)
 {
   <p>You are logged in as @User.Identity.Name.</p>
 
   <ul>
+<<<<<<< HEAD
   <li>@Html.ActionLink("Manage flavors","Index","Flavors")</li>
   <li>@Html.ActionLink("Manage treats","Index","Treats")</li>
+=======
+  <li>@Html.ActionLink("Manage artists","Index","Artists")</li>
+  <li>@Html.ActionLink("Manage classifications","Index","Classifications")</li>
+>>>>>>> eb367d86c5412eca5518f2cba807d8b5a330567f
   </ul>
   
   @using (Html.BeginForm("LogOff", "Account"))

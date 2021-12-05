@@ -10,4 +10,8 @@ public class UndergroundConnectionsContext : IdentityDbContext<ApplicationUser>
     {
       optionsBuilder.UseLazyLoadingProxies();
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> eb367d86c5412eca5518f2cba807d8b5a330567f
