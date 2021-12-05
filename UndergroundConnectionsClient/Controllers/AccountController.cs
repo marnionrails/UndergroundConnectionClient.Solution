@@ -36,25 +36,13 @@ namespace UndergroundConnectionsClient.Controllers
       IdentityResult result = await _userManager.CreateAsync(user, model.Password);
       if (result.Succeeded)
       {
-        return RedirectToAction("AddArtist");
+        return RedirectToAction("Create", "Artists");
       }
       else
       {
         return View();
       }
     }
-
-    public ActionResult AddArtist()
-    {
-      return View();
-    }
-    // [HttpPost]
-    // public IActionResult AddArtist(Artist artist)
-    // {
-    //   Artist.Post(artist);
-    //   ClassificationsController Classifications = new ClassificationsController();
-    //   return RedirectToAction("Index", Classifications);
-    // }
 
     public ActionResult Login()
     {
