@@ -8,7 +8,8 @@ using Microsoft.AspNetCore.Http;
 using UndergroundConnectionsClient.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using System.Dynamic;
+
+// using System.Dynamic;
 
 namespace UndergroundConnectionsClient.Controllers
 {
@@ -19,29 +20,43 @@ namespace UndergroundConnectionsClient.Controllers
       var allArtists = Artist.GetArtists();
       return View(allArtists);
     }
-    public IActionResult Create()
+    public IActionResult Create(int artistClassificationId)
     {
       var allClassifications = Classification.GetClassifications();
-      ViewBag.ClassificationId = new SelectList(allClassifications,"ClassificationId","ClassificationName");
+      ViewBag.ClassificationId = new SelectList(allClassifications, "ClassificationId", "ClassificationName");
+      ViewBag.ArtistClassificationId = artistClassificationId;
       return View();
     }
 
     [HttpPost]
-    public IActionResult Create( Artist artist, Classification classification)
+    public IActionResult Create(Artist artist, ArtistClassification artistClassification, int classificationId)
     {
+      artistClassification.ArtistClassificationId= classificationId;
+      ArtistClassification.NewPost(artistClassification, classificationId);
+
       Artist.Post(artist);
-      Classification.Post(classification);
-      return RedirectToAction("Index","Classifications");
+      // // Classification.Post(classification);
+      // if (ClassificationId != 0)
+      // {
+      //   ArtistClassification.Post(new ArtistClassification()
+      //   { ClassificationId = ClassificationId, ArtistId = artist.ArtistId });
+      //   // Classification.Post(new Classification(){ ClassificationId = ClassificationId});
+      // }
+      return RedirectToAction("Index", "Classifications");
     }
 
     public IActionResult Details(int id)
     {
-      dynamic mymodel = new ExpandoObject();
-      var artist = Artist.GetDetails(id);
-      var classification = Classification.GetDetails(id);
-      mymodel.Artists = artist;
-      mymodel.Classifications = classification;
-      return View(mymodel);
+      // dynamic mymodel = new ExpandoObject();
+      // var artist = Artist.GetDetails(id);
+      // var classification = Classification.GetDetails(id);
+      // mymodel.Artists = artist;
+      // mymodel.Classifications = classification;
+      // return View(mymodel);
+      // var artist = Artist.GetDetails(id);
+      // var thisArtist = artist.PostChild(Artist => Artist.JoinEntities).ThenInclude(join => join.Clssificaiton).FirstOrDefaut(Artist => Artist.ArtistId == id);
+      var thisArtist = Artist.GetDetails(id);
+      return View(thisArtist);
     }
 
     public IActionResult Edit(int id)
