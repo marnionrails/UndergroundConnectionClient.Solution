@@ -6,8 +6,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace UndergroundConnectionsClient.Migrations
 {
-    [DbContext(typeof(UndergroundConnectionsContext))]
-    partial class UndergroundConnectionsContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(UndergroundConnectionsClientContext))]
+    partial class UndergroundConnectionsClientContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

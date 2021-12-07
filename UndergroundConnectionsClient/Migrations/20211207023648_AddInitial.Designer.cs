@@ -7,9 +7,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace UndergroundConnectionsClient.Migrations
 {
-    [DbContext(typeof(UndergroundConnectionsContext))]
-    [Migration("20211202025447_AddIdentity")]
-    partial class AddIdentity
+    [DbContext(typeof(UndergroundConnectionsClientContext))]
+    [Migration("20211207023648_AddInitial")]
+    partial class AddInitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
