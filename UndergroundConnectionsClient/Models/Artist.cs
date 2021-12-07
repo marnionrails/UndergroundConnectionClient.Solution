@@ -7,7 +7,10 @@ namespace UndergroundConnectionsClient.Models
 {
   public class Artist
   {
-    
+    public Artist()
+        {
+            this.JoinEntities = new HashSet<ArtistClassification>();
+        }
     public int ArtistId { get; set; }
     public string Name { get; set; }
     public int Age { get; set; }
@@ -15,6 +18,8 @@ namespace UndergroundConnectionsClient.Models
     public string Bio { get; set; }
     public string Seeking { get; set; }
     public string PastWork { get; set; }
+
+    public virtual ICollection<ArtistClassification> JoinEntities { get; set;}
     public static List<Artist> GetArtists()
     {
       var apiCallTask = ApiHelperArtist.GetAll();
