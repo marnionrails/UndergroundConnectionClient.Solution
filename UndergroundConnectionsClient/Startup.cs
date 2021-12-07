@@ -30,11 +30,11 @@ namespace UndergroundConnectionsClient
 
             
       services.AddEntityFrameworkMySql()
-        .AddDbContext<UndergroundConnectionsContext>(options => options
+        .AddDbContext<UndergroundConnectionsClientContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
 
       services.AddIdentity<ApplicationUser, IdentityRole>()
-        .AddEntityFrameworkStores<UndergroundConnectionsContext>()
+        .AddEntityFrameworkStores<UndergroundConnectionsClientContext>()
         .AddDefaultTokenProviders();
 
       services.Configure<IdentityOptions>(options =>
