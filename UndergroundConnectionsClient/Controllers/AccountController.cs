@@ -8,11 +8,11 @@ namespace UndergroundConnectionsClient.Controllers
 {
   public class AccountController : Controller
   {
-    private readonly UndergroundConnectionsContext _db;
+    private readonly UndergroundConnectionsClientContext _db;
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly SignInManager<ApplicationUser> _signInManager;
 
-    public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, UndergroundConnectionsContext db)
+    public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, UndergroundConnectionsClientContext db)
     {
       _userManager = userManager;
       _signInManager = signInManager;
