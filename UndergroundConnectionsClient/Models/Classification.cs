@@ -10,6 +10,7 @@ namespace UndergroundConnectionsClient.Models
     public int ClassificationId { get; set; }
     public string ClassificationName { get; set; }
     public string ClassificationSpecification { get; set; }
+    public virtual ICollection<ArtistClassification> JoinEntities { get; set;}
 
     public static List<Classification> GetClassifications()
     {
