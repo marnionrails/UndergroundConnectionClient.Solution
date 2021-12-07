@@ -1,9 +1,36 @@
 @{
     ViewData["Title"] = "Details";
 }
-
+@using UndergroundConnectionsClient.Models;
+@model UndergroundConnectionsClient.Models.Artist
 <h1>Artist Info:</h1>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+@Html.DisplayNameFor(model => model.Age): @Html.DisplayFor(model => model.Age)</h3>
+@Html.DisplayNameFor(model => model.Bio): @Html.DisplayFor(model => model.Bio)</h3>
+@Html.DisplayNameFor(model => model.Seeking): @Html.DisplayFor(model => model.Seeking)</h3>
+@Html.DisplayNameFor(model => model.PastWork): @Html.DisplayFor(model => model.PastWork)</h3>
 <ul>
+@if(@Model.JoinEntities.Count == 0)
+{
+    <p>This artist does not have any classifications</p>
+}
+else
+{
+    <h4>classification for the artist:</h4>
+    <ul>
+        @foreach(var join in Model.JoinEntities)
+        {
+            <li>@join.Classification.ClassificationName</li>
+        }
+    </ul>
+}
+</ul>
+
+<p>@Html.ActionLink("Back to artist", "Index")</p>
+<p>@Html.ActionLink("Edit artist", "Edit", new { id = Model.ArtistId })</p>
+<p>@Html.ActionLink("Delete artist", "Delete", new { id = Model.ArtistId })</p>
+@* <ul>
     <li>ID: @Model.Artists.ArtistId</li>
     <li>Name: @Model.Artists.Name</li>
     <li>Age: @Model.Artists.Age</li>
@@ -13,11 +40,11 @@
     <li>Past Work: @Model.Artists.PastWork</li>
     <li>Classification: @Model.Classifications.ClassificationName</li>
 </ul>
-<br>
+<br> *@
 
-<a href="/Artists/Edit/@(Model.Artists.ArtistId)"><p>Edit</p></a>
+@* <a href="/Artists/Edit/@(Model.Artists.ArtistId)"><p>Edit</p></a>
 <br>
 
 <a href="/Artists"><p>Return</p></a>
 
-<a href="/Artists/Delete/@(Model.Artists.ArtistId)"><p>DELETE ARTIST</p></a>
+<a href="/Artists/Delete/@(Model.Artists.ArtistId)"><p>DELETE ARTIST</p></a> *@
